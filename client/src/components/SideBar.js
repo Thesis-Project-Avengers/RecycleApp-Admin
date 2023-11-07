@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faGear, faRightFromBracket, faUsers } from '@fortawesome/free-solid-svg-icons'
 import '../styles/SideBar.css'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { FIREBASE_AUTH } from '../firebaseConfig'
+import { useNavigate } from 'react-router-dom'
 
 
 const SideBar = () => {
+    const [authUser,setAuthUser]= useState(null)
+    const navigate = useNavigate()
+    const handleLogOut = (e)=>{
+        e.preventDefault()
+        signOut(FIREBASE_AUTH)
+        .then(()=>{
+            console.log("logged out");
+            navigate('/')
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+
+    useEffect(()=>{
+         onAuthStateChanged(FIREBASE_AUTH,(user)=>{
+            if(user){
+                console.log(user);
+                setAuthUser(user)
+            }
+            else{
+                
+                setAuthUser(null)
+            }
+            
+        })
+    },[])
 
     return (
         <div className='container'>
@@ -40,7 +70,7 @@ const SideBar = () => {
                         <FontAwesomeIcon icon={faGear} className='icons2' />
                         <p className='option-item-text2' >Settings</p>
                     </div>
-                    <div className='option-item2' >
+                    <div className='option-item2' onClick={(e)=>handleLogOut(e)} >
                         <FontAwesomeIcon icon={faRightFromBracket} className='icons2' />
                         <p className='option-item-text2' >Log Out</p>
                     </div>

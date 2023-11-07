@@ -9,8 +9,8 @@ function App() {
     <div className="App">
 
       <Routes>
-        <Route path='/signin' Component={SignIn} />
-        <Route path='/' Component={HomeScreen} />
+        <Route path='/' Component={SignIn} />
+        <Route path='/home' Component={HomeScreen} />
         {/* //? Here like the Above example  */}
 
       </Routes>
