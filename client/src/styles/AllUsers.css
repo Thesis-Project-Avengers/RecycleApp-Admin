@@ -1,0 +1,41 @@
+.all-filters{
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+.one-filter{
+    /* background-color: red; */
+    height: 4vh;
+    display: flex;
+    width: 7%;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid black;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: width 0.5s;
+    
+}
+.one-filter:hover{
+    /* background-color: red; */
+    font-weight: bold;
+    height: 4.5vh;
+    display: flex;
+    width: 18%;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.users-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}

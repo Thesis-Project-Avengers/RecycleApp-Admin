@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 2rem;
 }
 
 .overview-top-nav{
@@ -17,6 +18,10 @@
     align-items: center;
     justify-content: center;
     gap: 40rem;
+    border:  1px solid rgb(207, 207, 207);
+    border-left: transparent ;
+    border-right: transparent ;
+    border-top: transparent ;
 }
 .search-section{
     /* background-color: green ; */
