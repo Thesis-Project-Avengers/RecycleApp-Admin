@@ -1,0 +1,44 @@
+import React, { useState } from 'react'
+import '../styles/Form.css'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import {FIREBASE_AUTH} from '../firebaseConfig'
+import { useNavigate } from 'react-router-dom'
+
+const Form = () => {
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const navigate = useNavigate()
+  console.log(FIREBASE_AUTH);
+  const handleLogin = (e)=>{
+    e.preventDefault()
+    signInWithEmailAndPassword(FIREBASE_AUTH,email,password)
+    .then((res)=>{
+      console.log(res);
+      navigate('/home')
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
+ 
+  return (
+    <div className='form'>
+        <h1>Sign In</h1>
+        <div className='signin-form'>
+        <div className='signin-input' >
+          <p>Email</p>
+        <input type='email' placeholder='example@gmail.com' value={email} onChange={(e)=>setEmail(e.target.value)} />
+        </div>
+        <div className='signin-input' >
+          <p>Password</p>
+          <input type='password' placeholder='Your password' value={password} onChange={(e)=>setPassword(e.target.value)} />
+        </div>
+        </div>
+        <div className='signin-button' onClick={(e)=> handleLogin(e)} >
+          <span>Log In</span>
+        </div>
+    </div>
+  )
+}
+
+export default Form
