@@ -5,6 +5,8 @@ import '../styles/SignIn.css'
 const SignIn = () => {
   return (
     <div className='form-container'>
+      <div className='signin-image'>
+      </div>
         <Form/>
     </div>
   )
