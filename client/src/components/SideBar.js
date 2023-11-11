@@ -7,7 +7,7 @@ import { FIREBASE_AUTH } from '../firebaseConfig'
 import { useNavigate } from 'react-router-dom'
 
 
-const SideBar = () => {
+const SideBar = ({view,changeView}) => {
     const [authUser, setAuthUser] = useState(null)
     const navigate = useNavigate()
     const handleLogOut = (e) => {
@@ -58,18 +58,14 @@ const SideBar = () => {
                     <div className='option-item' onClick={(e) => {
                         e.preventDefault();
                         navigate('/users')
+                        if(view==='userDetails'){
+                            changeView('allusers');
+                        }
                     }} >
                         <FontAwesomeIcon icon={faUsers} className='icons' />
                         <p className='option-item-text' >Users</p>
                     </div>
-                    <div className='option-item' >
-                        <FontAwesomeIcon icon={faUsers} className='icons' />
-                        <p className='option-item-text' >Users</p>
-                    </div>
-                    <div className='option-item' >
-                        <FontAwesomeIcon icon={faUsers} className='icons' />
-                        <p className='option-item-text' >Users</p>
-                    </div>
+                   
                 </div>
                 <div className='sidebar-bottom-section' >
                     <div className='option-item2' >
