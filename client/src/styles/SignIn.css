@@ -4,5 +4,9 @@
     align-items: center;
     width: 100%;
     height : 100vh;
+}
+.signin-image{
+    height: 100vh;
+    width: 50%;
     background-image: url("https://static.vecteezy.com/system/resources/previews/024/941/918/non_2x/blue-plastic-bottle-recycling-pollution-multi-colored-garbage-dump-background-generated-by-ai-free-photo.jpg");
 }
