@@ -17,7 +17,7 @@ import { getFirestore } from "firebase/firestore"
 //   appId: "1:637778408728:web:cb36d1547108f4cd659a6d"
 // };
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDaiKBV81jX2kz8GWWFV-gJRp_sy6R_pfc",
   authDomain: "recyclev2-44dd8.firebaseapp.com",
   projectId: "recyclev2-44dd8",
