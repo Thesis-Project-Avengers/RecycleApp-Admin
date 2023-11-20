@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import SideBar from '../components/SideBar'
 import AllUsers from '../components/AllUsers'
 import { FIREBASE_DB } from '../firebaseConfig'
-import { collection, getDocs, query } from 'firebase/firestore'
+import { collection, getDocs, query ,updateDoc,doc} from 'firebase/firestore'
 
 const Users = () => {
   const [view,setView] = useState('allusers')
   const [users,setUsers] = useState([])
+  const [updated,setUpdated] = useState(false)
   const changeView = (newView)=>{
     setView(newView)
   }
@@ -19,6 +20,7 @@ const Users = () => {
         snapshot.docs.forEach((doc, index) => {
               users.push({ ...doc.data(), id: doc.id });
         });
+        console.log('user after update',users);
         setUsers(users);
       });
     } catch (error) {
@@ -62,15 +64,28 @@ const Users = () => {
       console.log(error);
     }
   }
+  const handleDelete = async (user) => {
+    await updateDoc(doc(FIREBASE_DB,"users",user.id),{
+      isDeleted : true
+    })
+  }
+  const handleBlock = async (user) => {
+      await updateDoc(doc(FIREBASE_DB,"users",user.id),{
+        isBlocked : !user.isBlocked
+      }).then(()=>{
+        setUpdated(!updated) 
+      })
+  }
+
 
 useEffect(()=>{
   fetchUsers()
-},[])
+},[updated])
     
   return (
     <div>
         <SideBar view={view} changeView={changeView}/>
-        <AllUsers view={view} changeView={changeView} users={users} fetchUsers={fetchUsers} accumulatorFilter={accumulatorFilter}  collectorFilter={collectorFilter}  />
+        <AllUsers view={view} changeView={changeView} users={users} fetchUsers={fetchUsers} accumulatorFilter={accumulatorFilter}  collectorFilter={collectorFilter}  handleBlock={handleBlock} handleDelete={handleDelete} />
     </div>
   )
 }

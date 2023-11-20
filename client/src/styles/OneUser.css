@@ -22,6 +22,30 @@
     background-color: #73d905;
     color: white;
 }
+.confirm{
+    width: 15%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #73d905;
+    border-radius: 8px;
+    background-color: #73d905;
+    color: white;
+    cursor: pointer;
+}
+.cancel{
+    width: 15%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #73d905;
+    border-radius: 8px;
+    background-color: #73d905;
+    color: white;
+    cursor: pointer;
+}
 .user-details{
     display: flex;
     flex-direction: column;
@@ -52,8 +76,8 @@
     width: 80%;
     height: 8vh;
 }
-.user-button{
-    width: 30%;
+.user-button-delete{
+    width: 40%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -61,12 +85,34 @@
     border: 2px solid black ;
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.user-button-block{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black ;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 .user-icons{
     width: 1.3rem;
     height: 1.3rem;
 }
-.user-button:hover{
+.user-button-delete:hover{
+    background-color: black ;
+    color: white;
+}
+.user-button-block:hover{
     background-color: black ;
     color: white;
 }

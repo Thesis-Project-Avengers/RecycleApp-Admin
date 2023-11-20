@@ -2,15 +2,16 @@ import { faBell, faEnvelope, faMagnifyingGlass, faMessage } from '@fortawesome/f
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import '../styles/AllUsers.css'
 import OneUser from './OneUser';
 import '../styles/UserDetails.css'
 import ProgressBar from '@ramonak/react-progress-bar';
 import { BarChart } from '@mui/x-charts/BarChart';
 
-const AllUsers = ({ view, changeView ,users,fetchUsers,accumulatorFilter,collectorFilter}) => {
-    const [clickedUser, setClickedUser] = useState({})
+const AllUsers = ({ view, changeView ,users,fetchUsers,accumulatorFilter,collectorFilter,handleBlock,handleDelete}) => {
+    const [clickedUser,setClickedUser] = useState({})
+    console.log('users in allusers',users);
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },
         {
@@ -41,15 +42,17 @@ const AllUsers = ({ view, changeView ,users,fetchUsers,accumulatorFilter,collect
             width: 150,
             // editable: true,
         },
+        {
+            field: 'isBlocked',
+            headerName: 'isBlocked',
+            width: 150,
+            // editable: true,
+        },
     ];
     
     const handleUserDetails = (user) => {
-        users.forEach(row => {
-            console.log(row.id);
-            if (row.id === user) {
-                setClickedUser(row)
-            }
-        })
+        console.log(user);
+        setClickedUser(user)
         changeView('userDetails')
     }
 
@@ -98,7 +101,8 @@ const AllUsers = ({ view, changeView ,users,fetchUsers,accumulatorFilter,collect
                                     },
                                 }}
                                 pageSizeOptions={[7]}
-                                onRowSelectionModelChange={(row) => { handleUserDetails(row[0]) }}
+                                
+                                 onRowClick={(row)=>{handleUserDetails(row.row)}}
                             />
                         </Box>
                     </div>
@@ -144,7 +148,7 @@ const AllUsers = ({ view, changeView ,users,fetchUsers,accumulatorFilter,collect
                                 </div>
                         </div>
                         <div className='main-section-body-right' >
-                            <OneUser user={clickedUser} />
+                            <OneUser user={clickedUser} fetchUsers={fetchUsers} handleBlock={handleBlock} handleDelete={handleDelete}  />
                         </div>
                     </div>
                 </div>
