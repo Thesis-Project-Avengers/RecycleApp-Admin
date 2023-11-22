@@ -65,6 +65,17 @@ const SideBar = ({view,changeView}) => {
                         <FontAwesomeIcon icon={faUsers} className='icons' />
                         <p className='option-item-text' >Users</p>
                     </div>
+                    <div className='option-item' onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/tips')
+                        if(view==='tips'){
+                            changeView('tips');
+                        }
+                    }} >
+                        <FontAwesomeIcon icon="fa-regular fa-files" className='icons' />
+                       
+                        <p className='option-item-text' >Tips</p>
+                    </div>
                    
                 </div>
                 <div className='sidebar-bottom-section' >
