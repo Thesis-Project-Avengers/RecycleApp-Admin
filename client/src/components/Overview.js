@@ -16,6 +16,7 @@ const Overview = () => {
     const [plastic,setPlastic] = useState(0)
     const [recycledPlastic,setRecycledPlastic] = useState(0)
     const [plasticBars,setPlasticBars] = useState(0)
+    const [hidden,setHidden] = useState(false)
     
       const fetch = ()=>{
         let req = 0
@@ -97,11 +98,17 @@ const Overview = () => {
                         <FontAwesomeIcon icon={faMagnifyingGlass} className='search-section-icons' />
                         <input type='text' placeholder='Search' />
                     </div>
-                    <FontAwesomeIcon icon={faBell} className='search-section-icons' />
+                    <FontAwesomeIcon icon={faBell} className='search-section-icons' onClick={(e)=>{
+                        e.preventDefault();
+                        setHidden(!hidden)
+                    }}/>
                     <FontAwesomeIcon icon={faEnvelope} className='search-section-icons' />
                     <FontAwesomeIcon icon={faMessage} className='search-section-icons' />
                 </div>
 
+            </div>
+            <div className={hidden ? 'notif-list-shown' : 'notif-list-hidden'}>
+                <h1>Hello</h1>
             </div>
             <div className='table-section' >
                 <table className="table caption-top">
