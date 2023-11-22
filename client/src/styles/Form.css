@@ -1,54 +1,58 @@
-.form{
-    background-color: rgba(221, 221, 221, 0.636);
-    width: 50%;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    gap: 3rem;
+.form {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  background-color: white;
+  padding: 20px 10px;
 }
-.signin-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    gap: 1rem;
+
+.signin-button {
+  padding: 10px 20px;
+  text-decoration: none;
+  width: 30%;
+  align-self: center;
+  color: #93c572;
+  background-color: white;
+  border: 1px solid #93c572;
+  margin: 20px 0px;
+  border-radius: 30px;
+  transition-duration: 0.7s;
+  cursor: pointer;
+  
 }
-.signin-input input{
-    width: 100%;
-    height: 5vh;
-    outline: none;
-    border: 1px solid rgb(214, 214, 214);
-    border-radius: 5px;
-    font-size: 16px;
+
+.signin-button:hover {
+  background-color: #93c572;
+  color: white;
 }
-.signin-input p{
-    font-size: 20px;
-    font-weight: bold;
+
+.loginimage {
+  width: 450px;
 }
-.signin-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
 }
-.signin-button{
-    cursor: pointer ;
-    background-color: #73d905;
-    display: flex;
-    justify-content: center ;
-    align-items: center ;
-    width: 60%;
-    height: 6vh;
-    border-radius: 10px;
+
+.signin-form input {
+  width: 80%;
+  align-self: center;
+  padding: 5px;
+  padding-top: 10px;
+  margin: 5px;
+  /* border-radius: 5px; */
+  outline: none;
+  border:none;
+  border-bottom: 1px solid #eee;
 }
-.signin-button span{
-    color: white;
-    font-size: 20px;
+.signin-form input:focus {
+  width: 80%;
+  align-self: center;
+  padding: 5px;
+  padding-top: 10px;
+  margin: 5px;
+  /* border-radius: 5px; */
+  outline: none;
+  border:none;
+  border-bottom: 1px solid #93c572;
 }

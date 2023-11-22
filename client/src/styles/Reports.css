@@ -1,0 +1,101 @@
+.reports {
+  background-color: #eee;
+  height: 90vh;
+}
+.reportDtails {
+    margin-top: 30px;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+.userPhoto {
+  width: 200px;
+  height: 200px;
+  align-self: center;
+  margin: 20px 0px;
+  border-radius: 50%;
+}
+
+.userCard {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+
+.cardes {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+}
+
+#titleRep{
+  text-align: center;
+}
+
+.causes{
+    
+    text-align: left;
+     width: 50%;
+     padding: 30px;
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+
+.causes ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    
+}
+.causes li{
+    padding: 10px;
+    background-color:#C61938;
+    margin: 5px 0px;
+    border-radius: 12px;
+    color: white;
+    width: fit-content;
+}
+
+.theReport{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    
+}
+.reportpara {
+    padding: 20px;
+    background-color: #eee;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 30px;
+}
+
+.reportCantainer{
+width: 80%;
+margin: 0px auto;
+}
+
+.goback{
+    text-align: left;
+    font-size: 30px;
+    margin: 20px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    color: black;
+}
+
+.goback:hover{
+    color: #C61938;
+}
