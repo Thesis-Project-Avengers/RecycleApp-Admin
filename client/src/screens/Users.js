@@ -7,10 +7,12 @@ import { collection, getDocs, query ,updateDoc,doc} from 'firebase/firestore'
 const Users = () => {
   const [view,setView] = useState('allusers')
   const [users,setUsers] = useState([])
+  
   const [updated,setUpdated] = useState(false)
   const changeView = (newView)=>{
     setView(newView)
   }
+
   const fetchUsers = async () => {
     try {
       const usersReference = collection(FIREBASE_DB, "users");
