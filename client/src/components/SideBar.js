@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faGear, faRightFromBracket, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faGear, faRightFromBracket, faUsers ,faFlag } from '@fortawesome/free-solid-svg-icons'
 import '../styles/SideBar.css'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { FIREBASE_AUTH } from '../firebaseConfig'
@@ -55,6 +55,7 @@ const SideBar = ({view,changeView}) => {
                         <FontAwesomeIcon icon={faBars} className='icons' />
                         <p className='option-item-text' >Overview</p>
                     </div>
+
                     <div className='option-item' onClick={(e) => {
                         e.preventDefault();
                         navigate('/users')
@@ -62,6 +63,7 @@ const SideBar = ({view,changeView}) => {
                             changeView('allusers');
                         }
                     }} >
+               
                         <FontAwesomeIcon icon={faUsers} className='icons' />
                         <p className='option-item-text' >Users</p>
                     </div>
@@ -75,6 +77,14 @@ const SideBar = ({view,changeView}) => {
                         <FontAwesomeIcon icon="fa-regular fa-files" className='icons' />
                        
                         <p className='option-item-text' >Tips</p>
+                    
+                    <div className='option-item' onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/reports')
+                        
+                    }} >
+                        <FontAwesomeIcon icon={faFlag} className='icons' />
+                        <p className='option-item-text' >Reports</p>
                     </div>
                    
                 </div>
@@ -89,6 +99,7 @@ const SideBar = ({view,changeView}) => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
