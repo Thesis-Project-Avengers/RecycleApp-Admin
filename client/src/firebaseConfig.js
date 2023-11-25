@@ -18,12 +18,13 @@ import { getFirestore } from "firebase/firestore"
 // };
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDaiKBV81jX2kz8GWWFV-gJRp_sy6R_pfc",
-  authDomain: "recyclev2-44dd8.firebaseapp.com",
-  projectId: "recyclev2-44dd8",
-  storageBucket: "recyclev2-44dd8.appspot.com",
-  messagingSenderId: "358013929699",
-  appId: "1:358013929699:web:68de6fa51703aeefed5dd6"
+  apiKey: "AIzaSyCKXjGQCvv58uhAEhCZ6e6A5-6hKpUqYiI",
+  authDomain: "recyclev3-6f26a.firebaseapp.com",
+  projectId: "recyclev3-6f26a",
+  databaseURL: "https://recyclev3-6f26a-default-rtdb.europe-west1.firebasedatabase.app",
+  storageBucket: "recyclev3-6f26a.appspot.com",
+  messagingSenderId: "472368470135",
+  appId: "1:472368470135:web:2c17eaa67817803431ce72"
 };
 
 // Initialize Firebase
