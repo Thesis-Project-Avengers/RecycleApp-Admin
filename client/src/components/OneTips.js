@@ -13,7 +13,7 @@ const OneTips = ({ tip }) => {
   }
   useEffect(() => {
     fetchPosterInfo()
-  }, [tip?.posterId])
+  }, [])
   //! This function causes an infinte loop and crahsed the sever of the firebase be careful we have fixed it Ok !!!
   const hideTip = async () => {
     if (tip) {

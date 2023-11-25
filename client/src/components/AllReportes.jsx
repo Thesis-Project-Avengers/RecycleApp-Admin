@@ -4,7 +4,7 @@ import OneReport from './oneReport.jsx'
 const AllReportes = ({ reportss, setView, setSelected }) => {
   return (
     <div className='reports'>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>
