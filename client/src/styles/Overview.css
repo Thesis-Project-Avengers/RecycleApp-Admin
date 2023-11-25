@@ -119,3 +119,18 @@
 .progress-bars{
     width: 100%;
 }
+
+.notif-list-hidden{
+    display: none;
+    
+}
+.notif-list-shown{
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    margin-left: 62%;
+    margin-top: 4.5%;
+    width: 20%;
+    height: 70vh;
+    display: block;
+    border-radius: 10px;
+}

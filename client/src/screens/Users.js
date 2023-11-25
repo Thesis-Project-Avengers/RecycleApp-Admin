@@ -64,6 +64,18 @@ const Users = () => {
       console.log(error);
     }
   }
+  const handleDelete = async (user) => {
+    await updateDoc(doc(FIREBASE_DB,"users",user.id),{
+      isDeleted : true
+    })
+  }
+  const handleBlock = async (user) => {
+      await updateDoc(doc(FIREBASE_DB,"users",user.id),{
+        isBlocked : !user.isBlocked
+      }).then(()=>{
+        setUpdated(!updated) 
+      })
+  }
 
 useEffect(()=>{
   fetchUsers()
