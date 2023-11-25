@@ -4,16 +4,17 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "../styles/OneTips.css";
 const OneTips = ({ tip }) => {
   const [posterInfo, setPosterInfo] = useState({});
-
-  useEffect(
-    useCallback(() => {
-      const userdocRef = doc(FIREBASE_DB, "users", tip?.posterId);
-      getDoc(userdocRef).then((doc) => {
-        setPosterInfo(doc.data());
-      });
-    }, [tip?.posterId])
-  );
-
+  const fetchPosterInfo = () => {
+    const userdocRef = doc(FIREBASE_DB, "users", tip?.posterId);
+    console.log("I m H ere Bezlhas started")
+    getDoc(userdocRef).then((doc) => {
+      setPosterInfo(doc.data());
+    });
+  }
+  useEffect(() => {
+    fetchPosterInfo()
+  }, [tip?.posterId])
+  //! This function causes an infinte loop and crahsed the sever of the firebase be careful we have fixed it Ok !!!
   const hideTip = async () => {
     if (tip) {
       const tipDocRef = doc(FIREBASE_DB, "Tips", tip.id);
