@@ -46,58 +46,57 @@ const ReportDetails = ({ setView, selected }) => {
 
     return (
         <div className='reportCantainer'>
-  <h1 className='goback' onClick={()=>{setView("reportes")}}> {"<  "}Go Back</h1>
-        <div className='reportDtails'>
-          
-            <div className='theReport'>
-                <div className='causes'>
-                    <h2>Causes</h2>
+            <h1 className='goback' onClick={() => { setView("reportes") }}> {"<  "}Go Back</h1>
+            <div className='reportDtails'>
 
-                    <ul>
-                        {causes.map((oneCause) => {
-                            return  <>
-                            <li>{oneCause}</li>
-                            <li>{oneCause}</li> 
-                            <li>{oneCause}</li> 
-                            </>
-                        })
-                        }
-                    </ul>
-                    <h2>Content</h2>
-                    <div className="reportpara">
-                      <p>{selected.content}</p>
-                    </div>
-                     
-                </div>
-               
-                 
+                <div className='theReport'>
+                    <div className='causes'>
+                        <h2>Causes</h2>
 
-                   
+                        <ul>
+                            {causes.map((oneCause) => {
+                                return <>
+                                    <li>{oneCause}</li>
+                                    
+                                </>
+                            })
+                            }
+                        </ul>
+                        <h2>Content</h2>
+                        <div className="reportpara">
+                            <p>{selected.content}</p>
+                        </div>
 
-           
-                <div className='cardes'>
-                    <div className='userCard'>
-                        <h2 id='titleRep'>Reporter</h2>
-                        <img src={reporter.photoURL} alt="" className='userPhoto' />
-                        <p>name : {reporter.firstName + "  " + reporter.lastName} </p>
-                        <p>type : {reporter.type}</p>
-                        <p>rating : {reporter.rating}</p>
-                        <p>points : {reporter.points}</p>
-                        <p>contact : {reporter.email}</p>
-                    </div>
-                    <div className='userCard'>
-                        <h2 id='titleRep'>Reported</h2>
-                        <img src={reported.photoURL} alt="" className='userPhoto' />
-                        <p>name : {reported.firstName + "  " + reported.lastName} </p>
-                        <p>type : {reported.type}</p>
-                        <p>rating : {reported.rating}</p>
-                        <p>points : {reported.points}</p>
-                        <p>contact : {reported.email}</p>
                     </div>
 
+
+
+
+
+
+                    <div className='cardes'>
+                        <div className='userCard'>
+                            <h2 id='titleRep'>Reporter</h2>
+                            <img src={reporter.photoURL} alt="" className='userPhoto' />
+                            <p>name : {reporter.firstName + "  " + reporter.lastName} </p>
+                            <p>type : {reporter.type}</p>
+                            <p>rating : {reporter.rating}</p>
+                            <p>points : {reporter.points}</p>
+                            <p>contact : {reporter.email}</p>
+                        </div>
+                        <div className='userCard'>
+                            <h2 id='titleRep'>Reported</h2>
+                            <img src={reported.photoURL} alt="" className='userPhoto' />
+                            <p>name : {reported.firstName + "  " + reported.lastName} </p>
+                            <p>type : {reported.type}</p>
+                            <p>rating : {reported.rating}</p>
+                            <p>points : {reported.points}</p>
+                            <p>contact : {reported.email}</p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     )
 }
