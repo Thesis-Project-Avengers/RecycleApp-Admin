@@ -1,76 +1,116 @@
-.user-card{
-    width: 80%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: white;
+.oneUserContainer {
+  width: 80%;
+  margin: 0px auto;
+  height: 100vh;
+}
+.photoSection img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
-.profession{
-    width: 50%;
-    height: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #73d905;
-    border-radius: 8px;
-    background-color: #73d905;
-    color: white;
+.photoSection {
+  width: 30%;
+  border-right  : 10px solid #eee;
 }
-.user-details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 60%;
-    height: 50%;
+
+.userInfos{
+  display: flex;
+  border: 10px solid #eee;
+  padding: 20px;
 }
-.image-frame-one-user{
-    width: 50%;
-    height: 40%;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.detailsSection{
+width: 70%;
 }
-.image-frame-one-user img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+.justInfo{
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content:center;
+  padding: 50px;
+  border-bottom:5px solid #eee; ;
 }
-.one-user-buttons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    height: 8vh;
+.info{
+  margin-top: 10px;
 }
-.user-button{
-    width: 30%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black ;
-    border-radius: 10px;
-    cursor: pointer;
+.titleInfo{
+  font-weight: 700;
+  font-size: 20px;
+  margin-right: 5px;
 }
-.user-icons{
-    width: 1.3rem;
-    height: 1.3rem;
+
+.theInfo{
+  font-weight: 500  ;
+  font-size: 20px;
+  margin-right: 5px;
 }
-.user-button:hover{
-    background-color: black ;
-    color: white;
+
+.oneDtailinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  margin: 10px 5px;
 }
-.user-email{
-    color: #b4b4b4;
-    text-decoration: underline;
+
+.moreInfo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lock{
+  align-self:flex-end;
+  font-size: 20px;
+  color: #06b795;
+}
+
+.transaction-info img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.transaction-info span{
+  font-weight: 500;
+}
+
+.transaction-info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100px;
+  gap: 10px;
+}
+
+.mytable{
+  width: 100%;
+}
+
+.oneTra{
+  border-bottom: 2px solid #eee;
+}
+
+.arrows{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#lock{
+  color: #06b795;
+  font-size: 30px;
+}
+
+#unlock{
+  color: red;
+  font-size: 30px;
 }

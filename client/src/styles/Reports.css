@@ -12,10 +12,11 @@
   
 }
 
-.userPhoto {
+.userPhoto {  
   width: 200px;
   height: 200px;
   align-self: center;
+  object-fit: cover;
   margin: 20px 0px;
   border-radius: 50%;
 }
@@ -30,7 +31,10 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
 }
+.userCard p{
+ font-weight: 700;
 
+}
 .cardes {
   display: flex;
   gap: 10px;
@@ -98,4 +102,28 @@ margin: 0px auto;
 
 .goback:hover{
     color: #C61938;
+}
+
+.ban{
+  font-size: 20px;
+  text-align: center;
+  color: rebeccapurple;
+  background-color: #C61938;
+  width: fit-content;
+  margin: 5px auto;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
+.ban:hover  {
+  font-size: 20px;
+  text-align: center;
+  color: rebeccapurple;
+  background-color: #C61938;
+  width: fit-content;
+  margin: 5px auto;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
 }
