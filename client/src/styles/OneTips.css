@@ -1,40 +1,50 @@
 .onetip {
-    flex-direction: row;
-    display: flex;
-    justify-content:flex-start;
-    align-items: flex-start;
-    gap:20%;
-    padding: 10%;
-    margin: 30px;
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30%;
+  width: 100%;
+  height: 30%;
+background-color: blue;
 }
-.oneTips img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
+.img_tip {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
 .contentTip {
-    flex-direction: column;
-    display: flex;
-    justify-content:flex-start;
-    align-items:flex-start
+  flex-direction: column;
+  display: flex;
+  justify-content:center;
+  align-items:center;
 }
-/* .all_Btn_Tips {
-    flex-direction: row;
-    gap: 20%;
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-} */
-.btn-tips {
-    border-radius: 5px;
-    width: 200px;
-    height: 40px;
-    
-    border:  2px solid #73d905;
-    color: black;
-   
+.name_content {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30%;
 }
 
-.btn-tips:hover{
-    background-color: #73d905;
+.btn-tips {
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+
+  border: 2px solid #73d905;
+  color: black;
+}
+
+.btn-tips:hover {
+  background-color: #73d905;
+  color: white;
+}
+.Tip_btns {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 10px;
 }

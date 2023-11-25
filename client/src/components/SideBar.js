@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faGear, faRightFromBracket, faUsers ,faFlag } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faGear, faRightFromBracket, faUsers ,faFlag ,faFile} from '@fortawesome/free-solid-svg-icons'
 import '../styles/SideBar.css'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { FIREBASE_AUTH } from '../firebaseConfig'
@@ -74,10 +74,10 @@ const SideBar = ({view,changeView}) => {
                             changeView('tips');
                         }
                     }} >
-                        <FontAwesomeIcon icon="fa-regular fa-files" className='icons' />
+                  <FontAwesomeIcon icon={faFile} className='icons' />
                        
                         <p className='option-item-text' >Tips</p>
-                    
+                    </div>
                     <div className='option-item' onClick={(e) => {
                         e.preventDefault();
                         navigate('/reports')
@@ -100,7 +100,7 @@ const SideBar = ({view,changeView}) => {
                 </div>
             </div>
         </div>
-        </div>
+  
     )
 }
 
