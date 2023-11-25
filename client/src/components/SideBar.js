@@ -22,28 +22,12 @@ const SideBar = ({view,changeView}) => {
             })
     }
 
-    useEffect(() => {
-        onAuthStateChanged(FIREBASE_AUTH, (user) => {
-            if (user) {
-                console.log(user);
-                setAuthUser(user)
-            }
-            else {
-
-                setAuthUser(null)
-            }
-
-        })
-    }, [])
 
     return (
         <div className='container'>
             <div className='sidebar-header'>
                 <div className='image-frame' >
                     <img src='https://lippianfamilydentistry.net/wp-content/uploads/2015/11/user-default.png' alt='' />
-                </div>
-                <div className='profile-name'>
-                    <p>Flen Fouleni</p>
                 </div>
             </div>
             <div className='sidebar-bottom' >
