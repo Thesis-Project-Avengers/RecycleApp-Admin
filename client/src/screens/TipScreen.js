@@ -10,19 +10,19 @@ import { faBell, faEllipsisVertical, faEnvelope, faMagnifyingGlass, faMessage } 
 const TipScreen = () => {
   const [tips,setTips] = useState([])
 
-
-useEffect(() => {
   const fetchTips = async () => {
-      const tipsRef = collection(FIREBASE_DB, "Tips");
-      let data = [];
-      onSnapshot(tipsRef, (snapshot) => {
-          snapshot.docs.forEach((doc) => {
-              data.push({ ...doc.data(), id: doc.id });
-          });
-          setTips(data)
-      });
+    const tipsRef = collection(FIREBASE_DB, "Tips");
+    let data = [];
+    onSnapshot(tipsRef, (snapshot) => {
+        snapshot.docs.forEach((doc) => {
+            data.push({ ...doc.data(), id: doc.id });
+        });
+        setTips(data)
+    });
 
-  };
+};
+useEffect(() => {
+ 
   fetchTips()
 
 }, [])
@@ -42,7 +42,7 @@ useEffect(() => {
                     <FontAwesomeIcon icon={faMessage} className='search-section-icons' />
                 </div>
             </div>
-            <AllTips tips={tips}/>
+            <AllTips tips={tips} fetchTips={fetchTips}/>
             
         </div>
   )

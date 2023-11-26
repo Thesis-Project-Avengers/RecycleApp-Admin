@@ -9,9 +9,10 @@
 background-color: blue;
 }
 .img_tip {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .contentTip {
   flex-direction: column;
@@ -31,7 +32,6 @@ background-color: blue;
   border-radius: 5px;
   width: 150px;
   height: 40px;
-
   border: 2px solid #73d905;
   color: black;
 }
@@ -47,4 +47,16 @@ background-color: blue;
   align-items: flex-start;
 
   gap: 10px;
+}
+
+.btn-tips-hide{
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+  border: 2px solid red;
+  color: black;
+}
+.btn-tips-hide:hover{
+  background-color: red;
+  color: white;
 }

@@ -1,32 +1,48 @@
 import React from 'react'
 import '../styles/OneUser.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faLockOpen} from '@fortawesome/free-solid-svg-icons'
+import {faLockOpen,faLock} from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react'
-import { collection, onSnapshot } from 'firebase/firestore'
+import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore'
 import { FIREBASE_DB } from '../firebaseConfig'
 import { useState } from 'react'
 import OneTransactions from './OneTransactions'
 
-const OneUser = ({ user, changeView }) => {
+const OneUser = ({ user, changeView ,fetchUsers}) => {
   const [userTransactions,setTransactions] = useState([])
-  useEffect(() => {
-    const fetchReports = async () => {
-        const transactionsRef = collection(FIREBASE_DB, "transactions");
-        let data = [];
-        onSnapshot(transactionsRef, (snapshot) => {
-            snapshot.docs.forEach((doc) => {
-              if(doc.data().receiverId === user.id || doc.data().senderId === user.id )
-                data.push({ ...doc.data(), id: doc.id });
-            });
-            setTransactions(data)
+  const [lock,setlock] = useState(user?.isBlocked)
+  const fetchReports = async () => {
+    const transactionsRef = collection(FIREBASE_DB, "transactions");
+    let data = [];
+    onSnapshot(transactionsRef, (snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          if(doc.data().receiverId === user.id || doc.data().senderId === user.id )
+            data.push({ ...doc.data(), id: doc.id });
         });
+        setTransactions(data)
+    });
 
-    };
+};
+  useEffect(() => {
+
     fetchReports()
 }, [])
+const handleDelete = async (user) => {
+  await updateDoc(doc(FIREBASE_DB, "users", user.id), {
+    isDeleted: true
+  })
+  fetchUsers()
+}
+const handleBlock = async (user) => {
+  await updateDoc(doc(FIREBASE_DB, "users", user.id), {
+    isBlocked: !user.isBlocked
+  }).then(() => {
+    setlock(!user.isBlocked)
+    fetchUsers()
+  })
+}
 
-console.log(userTransactions);
+
   return (
     <div className='oneUserContainer'>
       <h1 className='goback' onClick={() => { changeView("allusers") }}> {"<  "}Go Back</h1>
@@ -39,7 +55,9 @@ console.log(userTransactions);
         </div>
         <div className="detailsSection">
           <div className="justInfo">
-          <FontAwesomeIcon icon={faLockOpen} className='lock' />
+          { lock ? <FontAwesomeIcon icon={faLock} className='lock' style={{color:"red"}} onClick={()=>{handleBlock(user);fetchUsers()}} /> :
+            <FontAwesomeIcon icon={faLockOpen} className='lock'  onClick={()=>{handleBlock(user);fetchUsers()}}/>
+            }
             <div className="info">
               <span className='titleInfo'>
                 Email :

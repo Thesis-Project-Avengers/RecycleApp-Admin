@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { FIREBASE_DB } from "../firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "../styles/OneTips.css";
-const OneTips = ({ tip }) => {
+const OneTips = ({ tip, fetchTips }) => {
   const [posterInfo, setPosterInfo] = useState({});
   const fetchPosterInfo = () => {
     const userdocRef = doc(FIREBASE_DB, "users", tip?.posterId);
@@ -20,6 +20,19 @@ const OneTips = ({ tip }) => {
       const tipDocRef = doc(FIREBASE_DB, "Tips", tip.id);
       try {
         await updateDoc(tipDocRef, { hideTip: true });
+        fetchTips()
+      } catch (error) {
+        console.error("Error hiding tip:", error);
+      }
+    }
+  };
+
+  const showtip = async () => {
+    if (tip) {
+      const tipDocRef = doc(FIREBASE_DB, "Tips", tip.id);
+      try {
+        await updateDoc(tipDocRef, { hideTip: false });
+        fetchTips()
       } catch (error) {
         console.error("Error hiding tip:", error);
       }
@@ -35,31 +48,43 @@ const OneTips = ({ tip }) => {
   //   }
   // };
   return (
-    <div className="onetip">
-      <img className="img_tip" src={posterInfo?.photoURL} />
-      <div className="name_content">
+    <tr className="oneTip">
+      <td>
+        <img className="img_tip" src={posterInfo?.photoURL} />
+      </td>
+      <td>
         <h5>{posterInfo?.displayName}</h5>
-        <label>
-          {tip.content?.length > 20
-            ? tip.content?.slice(0, 20) + "....."
-            : tip.content}
-        </label>
-      </div>
-      <div className="contentTip">
+      </td>
+      <td>
+        <h5> {tip.content?.length > 20
+          ? tip.content?.slice(0, 20) + "....."
+          : tip.content}</h5>
+      </td>
+
+      <td>
         <label className="date_tip">
           {tip.createdAt?.toDate().toString().slice(15, 18) > 12
             ? tip.createdAt?.toDate().toString().slice(15, 21) + " PM"
             : tip.createdAt?.toDate().toString().slice(15, 21) + " AM"}
         </label>
+      </td>
+      <td>
         <h6>{tip.numlikes || 0}</h6>
-      </div>
-      <div className="Tip_btns">
-        <button className="btn-tips" onClick={hideTip}>
-          Hide
-        </button>
-        {/* <button className="btn-tips" onClick={() => editTip("Updated content")}>Edit</button> */}
-      </div>
-    </div>
+      </td>
+      <td>
+        {
+          tip?.hideTip === true ? <button className="btn-tips-hide" onClick={() => { showtip() }}>
+            show
+          </button> : <button className="btn-tips" onClick={() => { hideTip() }}>
+            Hide
+          </button>
+        }
+
+      </td>
+
+      {/* <button className="btn-tips" onClick={() => editTip("Updated content")}>Edit</button> */}
+
+    </tr>
   );
 };
 
