@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { FIREBASE_DB } from "../firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "../styles/OneTips.css";
-const OneTips = ({ tip }) => {
+const OneTips = ({ tip, fetchTips }) => {
   const [posterInfo, setPosterInfo] = useState({});
   const fetchPosterInfo = () => {
     const userdocRef = doc(FIREBASE_DB, "users", tip?.posterId);
@@ -20,6 +20,19 @@ const OneTips = ({ tip }) => {
       const tipDocRef = doc(FIREBASE_DB, "Tips", tip.id);
       try {
         await updateDoc(tipDocRef, { hideTip: true });
+        fetchTips()
+      } catch (error) {
+        console.error("Error hiding tip:", error);
+      }
+    }
+  };
+
+  const showtip = async () => {
+    if (tip) {
+      const tipDocRef = doc(FIREBASE_DB, "Tips", tip.id);
+      try {
+        await updateDoc(tipDocRef, { hideTip: false });
+        fetchTips()
       } catch (error) {
         console.error("Error hiding tip:", error);
       }
@@ -59,9 +72,14 @@ const OneTips = ({ tip }) => {
         <h6>{tip.numlikes || 0}</h6>
       </td>
       <td>
-        <button className="btn-tips" onClick={hideTip}>
-          Hide
-        </button>
+        {
+          tip?.hideTip === true ? <button className="btn-tips-hide" onClick={() => { showtip() }}>
+            show
+          </button> : <button className="btn-tips" onClick={() => { hideTip() }}>
+            Hide
+          </button>
+        }
+
       </td>
 
       {/* <button className="btn-tips" onClick={() => editTip("Updated content")}>Edit</button> */}

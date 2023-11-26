@@ -1,7 +1,7 @@
 import React from "react";
 import OneTips from "./OneTips";
 import "../styles/AllTips.css";
-const AllTips = ({ tips }) => {
+const AllTips = ({ tips,fetchTips }) => {
   return (
     <div className="allTipsContent">
       <div className="tips-number">
@@ -12,15 +12,17 @@ const AllTips = ({ tips }) => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Reporter id</th>
-            <th scope="col">Reported id</th>
-            <th scope="col">date</th>
+            <th scope="col">username</th>
+            <th scope="col">content</th>
+            <th scope="col">add time</th>
+            <th scope="col">likes</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
          {
           tips.map((tip)=>{
-            return <OneTips tip={tip}/>
+            return <OneTips tip={tip} fetchTips={fetchTips}/>
           })
          }
 

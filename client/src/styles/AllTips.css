@@ -1,72 +1,61 @@
-
 .allTipsContent {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-   
-  
+  width: 80%;
+  margin: 0px auto;
 }
-.oneTip{
-   background-color: rebeccapurple;
+.oneTip {
+  background-color: rebeccapurple;
 }
 .tips-number {
-    
-    display: flex;
-    justify-content: space-around;
-    gap: 65%;
-    align-items: flex-start;
-    flex-direction: row;
-    border:  1px solid rgb(207, 207, 207);
-    border-left: transparent ;
-    border-right: transparent ;
-    border-top: transparent ;
-    padding: 10px;
-   
+  display: flex;
+  justify-content: space-around;
+  gap: 65%;
+  align-items: flex-start;
+  flex-direction: row;
+  border: 1px solid rgb(207, 207, 207);
+  border-left: transparent;
+  border-right: transparent;
+  border-top: transparent;
+  padding: 10px;
 }
-
 
 .landing-page {
-    flex-direction: column;
-    
+  flex-direction: column;
 }
 
-  .tab {
+.tab {
   background-color: #d3a3a3;
-    width: 100%;
-flex-direction: column;
-align-items: center;
-display: flex;
-justify-content: center;
-  }
-  .body{
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-  .head{
-    flex-direction: row;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.body {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.head {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
-
-  .head_tips{
-
-        flex-direction: row;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        gap: 20%;
-  }
-  .body_tips{
-
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        /* gap: 10%;
+.head_tips {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 20%;
+}
+.body_tips {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* gap: 10%;
         margin-left: 10%; */
-        background-color: #d3a3a3;
-  }
+  background-color: #d3a3a3;
+}

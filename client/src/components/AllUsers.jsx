@@ -120,7 +120,7 @@ const AllUsers = ({ view, changeView, users, fetchUsers, accumulatorFilter, coll
                             <FontAwesomeIcon icon={faMessage} className='search-section-icons' />
                         </div>
                     </div>
-                    <OneUser user={clickedUser} changeView={changeView} />
+                    <OneUser user={clickedUser} changeView={changeView} fetchUsers={fetchUsers}/>
                 </div>
             )
         }
